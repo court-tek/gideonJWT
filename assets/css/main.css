@@ -1,0 +1,50 @@
+@import url( 'https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700');
+@import url( 'https://fonts.googleapis.com/css?family=Megrim:100,300,400,500,700');
+@import "helpers/grid12.css";
+@import "helpers/reset.css";
+
+/*
+Colours
+$darkblue: #3A4793;
+$lightBlue: #25B3EC;
+$lightPurple: #9787EE;
+$yellow: #FFBF3E;
+*/
+
+*{
+  box-sizing: border-box;
+  font-family: "Roboto";
+}
+
+html, body {
+  /* background: red; */
+  height: 100%;
+  font-family: "Roboto";
+  background: #EDEDED;
+}
+
+.myContainer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 32px;
+  text-align: center;
+  margin-top: 200px;
+}
+
+.indigo {
+  color: #6574cd;
+  font-size: 30px;
+  font-weight: bold;
+  transition: all 1s ease-in-out;
+}
+
+.green {
+  color: #38c172;
+  font-size: 40px;
+  font-weight: 100;
+  transition: all 1s ease-in-out;
+}
