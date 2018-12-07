@@ -1,5 +1,5 @@
 module.exports = {
-  database: 'mern' ,
+  database: 'gideon' ,
   username: 'root',
   password: 'sil40t28'
 };

@@ -2,7 +2,7 @@ const Sequelize = require('sequelize');
 const UserModel = require('./models/user');
 const keys = require('./config/keys');
 
-
+// Connect to Database
 const sequelize = new Sequelize(keys.database, keys.username, keys.password, {
   host: 'localhost',
   dialect: 'mysql',
@@ -13,7 +13,7 @@ const Hello = UserModel(sequelize, Sequelize);
 
 sequelize.sync()
 .then(() => {
-  console.log('db initiated');
+  console.log('Database Initiated');
 });
 
 module.exports = Hello;
