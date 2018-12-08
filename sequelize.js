@@ -8,6 +8,7 @@ const sequelize = new Sequelize(keys.database, keys.username, keys.password, {
   dialect: 'mysql',
   operatorsAliases: false
 });
+
 // imported models
 const Hello = UserModel(sequelize, Sequelize);
 

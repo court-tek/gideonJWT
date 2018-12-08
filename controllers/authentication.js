@@ -1,5 +1,14 @@
+const jwt = require('jwt-simple');
 const User = require("../sequelize");
+const bcrypt = require('bcrypt');
+const keys = require('../config/keys');
 
+function tokenForUser(User) {
+  const timestamp = new Date().getTime();
+  return jwt.encode({ sub: User.id, iat: timestamp }, keys.secret);
+}
+
+const BCRYPT_SALT_ROUNDS = 12;
 exports.signup = function(req, res, next) {
   const email = req.body.email;
   const password = req.body.password;
@@ -8,6 +17,7 @@ exports.signup = function(req, res, next) {
   if (!email || !password) {
     return res.status(422).send({ error: 'You must provide email and password' });
   }
+
   // See if user with given email exists
   User.findOne({
     where: {
@@ -18,12 +28,16 @@ exports.signup = function(req, res, next) {
       console.log("user already taken");
       res.json("username already taken");
     } else {
-      User.create({
-        email: email,
-        password: password
-      }).then(function() {
+      bcrypt.hash(password, BCRYPT_SALT_ROUNDS).then(function(hashedPassword) {
+        console.log(hashedPassword);
+        User.create({
+          email: email,
+          password: hashedPassword
+        })
+      })
+    .then(function() {
         console.log("user created");
-        res.json("user create")
+         res.json({ token: tokenForUser(User) });
       });
     }
   });
