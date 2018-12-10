@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { selectSong } from "../actions";
 
 class SongList extends Component {
+  // console.log(props);
   renderList() {
     return this.props.songs.map(song => {
       return (
@@ -24,12 +25,12 @@ class SongList extends Component {
   render() {
     return (
       <div>
-        <div style={{ textAlign: 'center' }}>
-          <div style={{ fontSize: '24px' }}>Song List</div>
+        <div style={{ textAlign: "center" }}>
+          <div style={{ fontSize: "24px" }}>Song List</div>
         </div>
-        <div className="ui divided list">{this.renderList()}</div>;
+        <div className="ui divided list">{this.renderList()}</div>
       </div>
-    )
+    );
   }
 }
 
